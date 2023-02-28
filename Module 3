@@ -1,0 +1,368 @@
+//2 i
+
+String str = 'Marvel';
+
+system.Assert(str.endsWith('l'));
+
+//2 ii
+
+Date myDate = System.today () ;
+
+Date newDate = myDate.addDays (30);
+
+system.debug ('New Date is : ' + newDate);
+
+//2 iii
+
+String str1= '10';
+
+Integer intl = Integer.valueOf (str1);
+
+Integer int2 = intl + 20;
+
+system.debug ( 'New Value Of The Integer is x' + int2);
+
+//2 iv
+
+String str2 = 'Man of Steel';
+
+Integer len = str2.length();
+
+system.debug('Length of The Integer is : '+ len);
+
+//2 v
+
+List<Integer> myList = new List<Integer>();
+
+myList.add(10);  
+
+myList.add(23); 
+
+myList.add(43);  
+
+myList.get(1);
+
+myList.set(1, 30); 
+
+myList.clear();
+
+system.debug ('Various List Opertaion Were Done!');
+
+//2 vi
+
+For (integer x=0; x < 10; x = x + 1)
+
+system.debug ( 'Value of x is: '+ x);
+
+//3
+
+System.debug('3');
+
+Integer myluckyNumber = 15;
+
+Integer myunlucklyNumber = 7;
+
+if (myluckyNumber != myunlucklyNumber + 8) 
+
+System.debug('False');
+
+else 
+
+System.debug('True');
+
+//4
+
+System.debug('4');
+
+Boolean isTrue = True;
+
+Boolean isFalse = false;
+
+if(isTrue || isFalse) 
+
+system.debug('True');
+
+else 
+
+system.debug('False');
+
+//5
+
+System.debug('5');
+
+Date today = Date.today() ;
+
+Date tomorrow = Date.today().addDays(1) ;
+
+If(today != tomorrow) 
+
+system.debug('True');
+
+else 
+
+system.debug('False');
+
+//6
+
+System.debug('6');
+
+Integer Score = 98;
+
+if (Score == 100) 
+
+System.debug('Grade: At');
+
+else if (Score >= 90 ) 
+
+System.debug('Grade: A');
+
+else if(Score >= 80) 
+
+System.debug('Grade: B');
+
+else 
+
+System.debug('Grade: c');
+
+//7
+
+System.debug('7');
+
+List<Billing__c> bills = new List<Billing__c>();
+
+bills = [select id, Name, Status__c from Billing__c];
+
+List<String> BillingList = new List<string>() ;
+
+for (Billing__c bill: bills){
+
+    if(bill.status__c == 'Paid'){
+
+       System.debug ('Value of Current Record in the Loop : ( Id = '+ bill.Id + ', Name =' + bill.Name + 'Status = ' + bill.Status__c+ '}');
+
+       BillingList.add(bill.Name);
+
+}} System.debug ( 'Value of BillingList' + BillingList);*/
+
+//10
+
+System.debug('10');
+
+Customer__c cus = new Customer__c(Name = 'Wipro', Customer_Type__c ='Premium' );
+
+insert cus;
+
+List<Billing__c> rec = new List<Billing__c>();
+
+Billing__c recl = new Billing__c(Status__c = 'Paid', Amount_Paid__c = 5000000);
+
+rec.add(recl);
+
+Database.SaveResult[] srList = Database.insert(rec, false);
+
+for (Database.SaveResult sr : srList){
+
+  if (sr.isSuccess())
+
+   System.debug ('Successfully inserted Billing Id: '+ sr.getId());
+
+else{
+
+    for(Database.Error err : sr.getErrors()){
+
+  System.debug ('The following error has occurred.');
+
+  System.debug(err.getStatusCode() + err.getMessage());
+
+  System.debug ('Billing fields that affected this error: ' + err.getFields());
+
+}
+
+}
+
+}
+
+/*//2 i
+
+String str = 'Marvel';
+
+system.Assert(str.endsWith('l'));
+
+//2 ii
+
+Date myDate = System.today () ;
+
+Date newDate = myDate.addDays (30);
+
+system.debug ('New Date is : ' + newDate);
+
+//2 iii
+
+String str1= '10';
+
+Integer intl = Integer.valueOf (str1);
+
+Integer int2 = intl + 20;
+
+system.debug ( 'New Value Of The Integer is x' + int2);
+
+//2 iv
+
+String str2 = 'Man of Steel';
+
+Integer len = str2.length();
+
+system.debug('Length of The Integer is : '+ len);
+
+//2 v
+
+List<Integer> myList = new List<Integer>();
+
+myList.add(10);  
+
+myList.add(23); 
+
+myList.add(43);  
+
+myList.get(1);
+
+myList.set(1, 30); 
+
+myList.clear();
+
+system.debug ('Various List Opertaion Were Done!');
+
+//2 vi
+
+For (integer x=0; x < 10; x = x + 1)
+
+system.debug ( 'Value of x is: '+ x);
+
+//3
+
+System.debug('3');
+
+Integer myluckyNumber = 15;
+
+Integer myunlucklyNumber = 7;
+
+if (myluckyNumber != myunlucklyNumber + 8) 
+
+   System.debug('False');
+
+else 
+
+   System.debug('True');
+
+//4
+
+System.debug('Exe - 4');
+
+Boolean isTrue = True;
+
+Boolean isFalse = false;
+
+if(isTrue || isFalse) 
+
+   system.debug('True');
+
+else 
+
+   system.debug('False');
+
+//5
+
+System.debug('Exe - 5');
+
+Date today = Date.today() ;
+
+Date tomorrow = Date.today().addDays(1) ;
+
+If(today != tomorrow) system.debug('True');
+
+else system.debug('False');
+
+//6
+
+System.debug('Exe - 6');
+
+Integer Score = 98;
+
+if (Score == 100) 
+
+   System.debug('Grade: At');
+
+else if (Score >= 90 ) 
+
+   System.debug('Grade: A');
+
+else if(Score >= 80) 
+
+   System.debug('Grade: B');
+
+else 
+
+   System.debug('Grade: c');
+
+//7
+
+System.debug('Exe - 7');
+
+List<Billing__c> bills = new List<Billing__c>();
+
+bills = [select id, Name, Status__c from Billing__c];
+
+List<String> BillingList = new List<string>() ;
+
+for (Billing__c bill: bills){
+
+    if(bill.status__c == 'Paid'){
+
+       System.debug ('Value of Current Record in the Loop : ( Id = '+ bill.Id + ', Name =' + bill.Name + 'Status = ' + bill.Status__c+ '}');
+
+       BillingList.add(bill.Name);
+
+    }
+
+} 
+
+System.debug('Value of BillingList' + BillingList);
+
+//10
+
+System.debug('Exe - 10');
+
+Customer__c cus = new Customer__c(Name = 'Wipro', Customer_Type__c ='Premium' );
+
+insert cus;
+
+List<Billing__c> rec = new List<Billing__c>();
+
+Billing__c recl = new Billing__c(Status__c = 'Paid', Amount_Paid__c = 5000000);
+
+rec.add(recl);
+
+Database.SaveResult[] srList = Database.insert(rec, false);
+
+for (Database.SaveResult sr : srList){
+
+  if (sr.isSuccess())
+
+   System.debug ('Successfully inserted Billing Id: '+ sr.getId());
+
+else{
+
+    for(Database.Error err : sr.getErrors()){
+
+  System.debug ('The following error has occurred.');
+
+  System.debug(err.getStatusCode() + err.getMessage());
+
+  System.debug ('Billing fields that affected this error: ' + err.getFields());
+
+  }
+
+ }
+
+}
+
